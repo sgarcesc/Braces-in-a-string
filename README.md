@@ -1,5 +1,3 @@
  Braces in a string are considered to be balanced if the following criteria are met:
 * For every opening brace (i.e., ( , { , or [ ), there is a matching closing brace (i.e., ) , } , or ] ) of the same type (i.e., ( matches ) , { matches } , and [ matches ] ). An opening brace must appear before (to the left of) its matching closing brace. For example, ]{}[ is not balanced.
 * No unmatched braces lie between some pair of matched braces. For example, ({[]}) is balanced , but {[}] and [{)] are not balanced.
-
-Complete the braces function in the editor below. It has one parameter: an array of n strings, values. For each string in values, it must determine if all the braces in the string arebalanced . The function must return an array of strings where the string at each index i (where 0 ≤ i < n) denotes whether or not all the braces in string values were balanced. If yes, then index i in the return array must contain the string YES ; otherwise, index i in the return array must contain the string NO .
