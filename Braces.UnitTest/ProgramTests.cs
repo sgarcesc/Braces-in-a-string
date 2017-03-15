@@ -6,65 +6,32 @@ namespace Braces.UnitTest
 {
     public class ProgramTests
     {
-        [Fact]
-        public void TestCase0()
+        [Theory]
+        [InlineData("{}[]()")]
+        [InlineData("[{()()}({[]})]({}[({})])((((((()[])){}))[]{{{({({({{{{{{}}}}}})})})}}}))[][][]")]
+        [InlineData("{}[]()")]
+        public void IsMatchReturnsYes(string value)
         {
             //Arrange
             var expected = "YES";
 
             //Act
-            var result = Program.IsMatch("{}[]()");
+            var result = Program.IsMatch(value);
 
             //Assert
             Assert.Equal(expected, result);
         }
 
-        [Fact]
-        public void TestCase1()
+        [Theory]
+        [InlineData("{[}]")]
+        [InlineData("{[()}]")]
+        public void IsMatchReturnsNo(string value)
         {
             //Arrange
             var expected = "NO";
 
             //Act
-            var result = Program.IsMatch("{[}]");
-
-            //Assert
-            Assert.Equal(expected, result);
-        }
-
-        [Fact]
-        public void TestCase2()
-        {
-            //Arrange
-            var expected = "NO";
-
-            //Act
-            var result = Program.IsMatch("{[()}]");
-
-            //Assert
-            Assert.Equal(expected, result);
-        }
-
-        [Fact]
-        public void TestCase3()
-        {
-            //Arrange
-            var expected = "YES";
-
-            //Act
-            var result = Program.IsMatch("[{()()}({[]})]({}[({})])((((((()[])){}))[]{{{({({({{{{{{}}}}}})})})}}}))[][][]");
-
-            //Assert
-            Assert.Equal(expected, result);
-        }
-
-        [Fact]
-        public void TestCase4()
-        {
-            var expected = "YES";
-
-            //Act
-            var result = Program.IsMatch("{}[]()");
+            var result = Program.IsMatch(value);
 
             //Assert
             Assert.Equal(expected, result);
